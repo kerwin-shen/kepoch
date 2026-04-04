@@ -1,0 +1,9 @@
+.vs/
+/*/bin/
+/*/obj/
+
+/*/Properties/launchSettings.json
+
+*.suo
+*.user
+*.slnx.user
