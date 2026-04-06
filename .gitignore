@@ -1,8 +1,7 @@
 .vs/
 /*/bin/
 /*/obj/
-
-/*/Properties/launchSettings.json
+/*/Properties/
 
 *.suo
 *.user
