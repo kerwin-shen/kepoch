@@ -4,113 +4,141 @@
              x:Class="KEpoch.MainPage"
              Shell.NavBarIsVisible="False">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="20,0"
-            Spacing="10">
+    <VerticalStackLayout VerticalOptions="Fill" Spacing="10">
 
-            <Label
-                Text="K-Epoch"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
-
-            <HorizontalStackLayout
+        <!-- Title -->
+        <HorizontalStackLayout
                 HorizontalOptions="Center"
-                Margin="40">
-                <Button x:Name="BtnCurTime"
-                        WidthRequest="320"
-                        HeightRequest="40"
-                        Text="Get Current Time" 
-                        Clicked="BtnCurTime_Click"/>
-            </HorizontalStackLayout>
+                HeightRequest="50">
+            <Label
+                    Text="K-Epoch" 
+                    Style="{StaticResource Headline}"
+                    SemanticProperties.HeadingLevel="Level1"/>
+            <Label x:Name="VersionLabel" 
+                    FontSize="10"
+                    TextColor="Gray"
+                    Margin="3,10,0,0"
+                    VerticalOptions="End"/>
+        </HorizontalStackLayout>
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center">
-                <Label Text="Local Time Zone:"
-                       WidthRequest="130" 
-                       HeightRequest="40"
-                       VerticalTextAlignment="Center"/>
-                <Entry x:Name="txtZone"
-                       WidthRequest="160"
-                       HeightRequest="40"
-                       Placeholder="UTC + 0:0"
-                       Margin="10"
-                       IsEnabled="False"/>
-                <BoxView WidthRequest="80" HeightRequest="40" BackgroundColor="Transparent"/>
-            </HorizontalStackLayout>
+        <!-- Main Content -->
+        <ScrollView VerticalOptions="Fill">
+            <VerticalStackLayout Padding="30" Spacing="5">
+                <HorizontalStackLayout
+                    HorizontalOptions="Center"
+                    Margin="40">
+                    <Button x:Name="BtnCurTime"
+                            WidthRequest="320"
+                            HeightRequest="40"
+                            Text="Get Current Time" 
+                            Clicked="BtnCurTime_Click"/>
+                </HorizontalStackLayout>
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center">
-                <Label Text="UTC Seconds (DEC):"
-                       WidthRequest="130" 
-                       HeightRequest="40"
-                       VerticalTextAlignment="Center"/>
-                <Entry x:Name="txtSecDec"
-                       WidthRequest="160"
-                       HeightRequest="40"
-                       Placeholder="0"
-                       Margin="10"/>
-                <Button x:Name="btnSecDec"
-                        WidthRequest="80"
-                        HeightRequest="40"
-                        Text="Convert" 
-                        Clicked="BtnUTCSecondsDEC_Click"/>
-            </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+                    <Label Text="Local Time Zone:"
+                           WidthRequest="130" 
+                           HeightRequest="40"
+                           VerticalTextAlignment="Center"/>
+                    <Entry x:Name="txtZone"
+                           WidthRequest="160"
+                           HeightRequest="40"
+                           Placeholder="UTC + 0:0"
+                           Margin="10"
+                           IsEnabled="False"/>
+                    <BoxView WidthRequest="80" HeightRequest="40" BackgroundColor="Transparent"/>
+                </HorizontalStackLayout>
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center">
-                <Label Text="UTC Seconds (HEX):"
-                       WidthRequest="130"
-                       HeightRequest="40"
-                       VerticalTextAlignment="Center"/>
-                <Entry x:Name="txtSecHex"
-                       WidthRequest="160"
-                       HeightRequest="40"
-                       Placeholder="00000000"
-                       Margin="10"/>
-                <Button x:Name="btnSecHex"
-                        WidthRequest="80"
-                        HeightRequest="40"
-                        Text="Convert" 
-                        Clicked="BtnUTCSecondsHEX_Click"/>
-            </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+                    <Label Text="UTC Seconds (DEC):"
+                           WidthRequest="130" 
+                           HeightRequest="40"
+                           VerticalTextAlignment="Center"/>
+                    <Entry x:Name="txtSecDec"
+                           WidthRequest="160"
+                           HeightRequest="40"
+                           Placeholder="0"
+                           Margin="10"/>
+                    <Button x:Name="btnSecDec"
+                            WidthRequest="80"
+                            HeightRequest="40"
+                            Text="Convert" 
+                            Clicked="BtnUTCSecondsDEC_Click"/>
+                </HorizontalStackLayout>
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center">
-                <Label Text="UTC Time:"
-                       WidthRequest="130"
-                       HeightRequest="40"
-                       VerticalTextAlignment="Center"/>
-                <Entry x:Name="txtUtcTime"
-                       WidthRequest="160"
-                       HeightRequest="40"
-                       Placeholder="1970/1/1 0:00:00"
-                       Margin="10"/>
-                <Button x:Name="btnUtcTime"
-                        WidthRequest="80"
-                        HeightRequest="40"
-                        Text="Convert" 
-                        Clicked="BtnUTCTime_Click"/>
-            </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+                    <Label Text="UTC Seconds (HEX):"
+                           WidthRequest="130"
+                           HeightRequest="40"
+                           VerticalTextAlignment="Center"/>
+                    <Entry x:Name="txtSecHex"
+                           WidthRequest="160"
+                           HeightRequest="40"
+                           Placeholder="00000000"
+                           Margin="10"/>
+                    <Button x:Name="btnSecHex"
+                            WidthRequest="80"
+                            HeightRequest="40"
+                            Text="Convert" 
+                            Clicked="BtnUTCSecondsHEX_Click"/>
+                </HorizontalStackLayout>
 
-            <HorizontalStackLayout
-                HorizontalOptions="Center">
-                <Label Text="Local Time:"
-                       WidthRequest="130"
-                       HeightRequest="40"
-                       VerticalTextAlignment="Center"/>
-                <Entry x:Name="txtLocalTime"
-                       WidthRequest="160"
-                       HeightRequest="40"
-                       Placeholder="1970/1/1 0:00:00"
-                       Margin="10"/>
-                <Button x:Name="btnLocalTime"
-                        WidthRequest="80"
-                        HeightRequest="40"
-                        Text="Convert" 
-                        Clicked="BtnLocalTime_Click"/>
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
-    </ScrollView>
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+                    <Label Text="UTC Time:"
+                           WidthRequest="130"
+                           HeightRequest="40"
+                           VerticalTextAlignment="Center"/>
+                    <Entry x:Name="txtUtcTime"
+                           WidthRequest="160"
+                           HeightRequest="40"
+                           Placeholder="1970/1/1 0:00:00"
+                           Margin="10"/>
+                    <Button x:Name="btnUtcTime"
+                            WidthRequest="80"
+                            HeightRequest="40"
+                            Text="Convert" 
+                            Clicked="BtnUTCTime_Click"/>
+                </HorizontalStackLayout>
 
+                <HorizontalStackLayout
+                    HorizontalOptions="Center">
+                    <Label Text="Local Time:"
+                           WidthRequest="130"
+                           HeightRequest="40"
+                           VerticalTextAlignment="Center"/>
+                    <Entry x:Name="txtLocalTime"
+                           WidthRequest="160"
+                           HeightRequest="40"
+                           Placeholder="1970/1/1 0:00:00"
+                           Margin="10"/>
+                    <Button x:Name="btnLocalTime"
+                            WidthRequest="80"
+                            HeightRequest="40"
+                            Text="Convert" 
+                            Clicked="BtnLocalTime_Click"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Copyright -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+            <Label Text="© 2026 Kerwin Shen"
+                   FontSize="11"
+                   TextColor="DarkGray"
+                   HorizontalOptions="Center">
+            </Label>
+            <Label Text="[ Source on GitHub ]"
+                   FontSize="12"
+                   TextColor="#007ACC"
+                   HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="GitHub_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
 </ContentPage>

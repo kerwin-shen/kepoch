@@ -10,10 +10,18 @@ namespace KEpoch
         public MainPage()
         {
             InitializeComponent();
+            string FullVersion = AppInfo.Current.VersionString;
+            string[] arr = FullVersion.Split('.');
+            string DisplayVersion = string.Join(".", arr.Take(3));
+            VersionLabel.Text = "V" + DisplayVersion;
 
             GetLocalTimeZone();
         }
 
+        private async void GitHub_Tapped(object sender, EventArgs e)
+        {
+            await Launcher.OpenAsync("https://github.com/kerwin-shen/kepoch");
+        }
 
         private void GetLocalTimeZone()
         {
