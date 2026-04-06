@@ -125,7 +125,7 @@
 
         <!-- Copyright -->
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-            <Label Text="© 2026 Kerwin Shen"
+            <Label Text="Copyright © Kerwin Shen 2026"
                    FontSize="11"
                    TextColor="DarkGray"
                    HorizontalOptions="Center">
