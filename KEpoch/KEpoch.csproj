@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net10.0-android</TargetFrameworks>
-		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<!-- <TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net10.0-ios;net10.0-maccatalyst</TargetFrameworks> -->
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
 
 		<!-- Note for MacCatalyst:
@@ -34,8 +34,11 @@
 		<ApplicationId>com.companyname.kepoch</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
+		<ApplicationVersion>3</ApplicationVersion>
+
+		<!-- PackageVersion -->
+		<PackageVersion>1.0.1</PackageVersion>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
@@ -50,54 +53,46 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-android|AnyCPU'">
-	  <ApplicationVersion>2</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
-	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
 	  <AndroidEnableMultiDex>True</AndroidEnableMultiDex>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-ios|AnyCPU'">
-	  <ApplicationVersion>1</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
-	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-maccatalyst|AnyCPU'">
-	  <ApplicationVersion>1</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
-	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-windows10.0.19041.0|AnyCPU'">
-	  <ApplicationVersion>2</ApplicationVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
 	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
-	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-android|AnyCPU'">
-	  <ApplicationVersion>2</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
-	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	  <AndroidEnableMultiDex>True</AndroidEnableMultiDex>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-ios|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-maccatalyst|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-ios|AnyCPU'">
-	  <ApplicationVersion>1</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
-	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-maccatalyst|AnyCPU'">
-	  <ApplicationVersion>1</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
-	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
+	  <ApplicationVersion>3</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-windows10.0.19041.0|AnyCPU'">
-	  <ApplicationVersion>2</ApplicationVersion>
+	  <ApplicationVersion>3</ApplicationVersion>
 	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
-	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -132,5 +127,5 @@
 	</ItemGroup>
 
 	<!-- Import keystore credentials for android publish signing -->
-	<Import Project="Keys/kandorid.props" Condition="Exists('Keys/kandorid.props')" />
+	<Import Project="Keys/kandorid.props" Condition="Exists('Keys/kandorid.props') AND '$(Configuration)'=='Release' AND $(TargetFramework.Contains('-android'))" />
 </Project>
