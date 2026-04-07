@@ -4,127 +4,106 @@
              x:Class="KEpoch.MainPage"
              Shell.NavBarIsVisible="False">
 
-    <VerticalStackLayout VerticalOptions="Fill" Spacing="10">
-
+    <Grid Padding="15">
+        
         <!-- Title -->
-        <HorizontalStackLayout
-                HorizontalOptions="Center"
-                HeightRequest="50">
-            <Label
-                    Text="K-Epoch" 
-                    Style="{StaticResource Headline}"
-                    SemanticProperties.HeadingLevel="Level1"/>
+        <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center">
+            <Label Text="K-Epoch" 
+                   Style="{StaticResource Headline}"
+                   SemanticProperties.HeadingLevel="Level1"
+                   Padding="2"/>
             <Label x:Name="VersionLabel" 
-                    FontSize="10"
-                    TextColor="Gray"
-                    Margin="3,10,0,0"
-                    VerticalOptions="End"/>
+                   FontSize="10"
+                   TextColor="Gray"
+                   VerticalOptions="End"/>
         </HorizontalStackLayout>
 
         <!-- Main Content -->
-        <ScrollView VerticalOptions="Fill">
-            <VerticalStackLayout Padding="30" Spacing="5">
-                <HorizontalStackLayout
-                    HorizontalOptions="Center"
-                    Margin="40">
-                    <Button x:Name="BtnCurTime"
-                            WidthRequest="320"
-                            HeightRequest="40"
-                            Text="Get Current Time" 
-                            Clicked="BtnCurTime_Click"/>
-                </HorizontalStackLayout>
+        <ScrollView VerticalOptions="Center">
+            <Grid ColumnSpacing="5" RowSpacing="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="108*"/>
+                    <ColumnDefinition Width="172*"/>
+                    <ColumnDefinition Width="92*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="44"/>
+                    <RowDefinition Height="44"/>
+                    <RowDefinition Height="44"/>
+                    <RowDefinition Height="44"/>
+                    <RowDefinition Height="44"/>
+                    <RowDefinition Height="44"/>
+                </Grid.RowDefinitions>
 
-                <HorizontalStackLayout
-                    HorizontalOptions="Center">
-                    <Label Text="Local Time Zone:"
-                           WidthRequest="130" 
-                           HeightRequest="40"
-                           VerticalTextAlignment="Center"/>
-                    <Entry x:Name="txtZone"
-                           WidthRequest="160"
-                           HeightRequest="40"
-                           Placeholder="UTC + 0:0"
-                           Margin="10"
-                           IsEnabled="False"/>
-                    <BoxView WidthRequest="80" HeightRequest="40" BackgroundColor="Transparent"/>
-                </HorizontalStackLayout>
+                <!-- Row 0: A button for getting current time -->
+                <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                        x:Name="BtnCurTime"
+                        Text="Get Current Time" 
+                        Clicked="BtnCurTime_Click"/>
 
-                <HorizontalStackLayout
-                    HorizontalOptions="Center">
-                    <Label Text="UTC Seconds (DEC):"
-                           WidthRequest="130" 
-                           HeightRequest="40"
-                           VerticalTextAlignment="Center"/>
-                    <Entry x:Name="txtSecDec"
-                           WidthRequest="160"
-                           HeightRequest="40"
-                           Placeholder="0"
-                           Margin="10"/>
-                    <Button x:Name="btnSecDec"
-                            WidthRequest="80"
-                            HeightRequest="40"
-                            Text="Convert" 
-                            Clicked="BtnUTCSecondsDEC_Click"/>
-                </HorizontalStackLayout>
+                <!-- Row 1: Local Time Zone -->
+                <Label Grid.Row="1" Grid.Column="0"
+                       Text="Local Time Zone:"
+                       VerticalTextAlignment="Center"/>
+                <Entry Grid.Row="1" Grid.Column="1"
+                       x:Name="txtZone"
+                       Placeholder="UTC + 0:0"
+                       IsEnabled="False"/>
+                <BoxView Grid.Row="1" Grid.Column="2" 
+                         BackgroundColor="Transparent"/>
 
-                <HorizontalStackLayout
-                    HorizontalOptions="Center">
-                    <Label Text="UTC Seconds (HEX):"
-                           WidthRequest="130"
-                           HeightRequest="40"
-                           VerticalTextAlignment="Center"/>
-                    <Entry x:Name="txtSecHex"
-                           WidthRequest="160"
-                           HeightRequest="40"
-                           Placeholder="00000000"
-                           Margin="10"/>
-                    <Button x:Name="btnSecHex"
-                            WidthRequest="80"
-                            HeightRequest="40"
-                            Text="Convert" 
-                            Clicked="BtnUTCSecondsHEX_Click"/>
-                </HorizontalStackLayout>
+                <!-- Row 2: UTC Seconds (DEC) -->
+                <Label Grid.Row="2" Grid.Column="0"
+                       Text="UTC Seconds (DEC):"
+                       VerticalTextAlignment="Center"/>
+                <Entry Grid.Row="2" Grid.Column="1"
+                       x:Name="txtSecDec"
+                       Placeholder="0"/>
+                <Button Grid.Row="2" Grid.Column="2"
+                        x:Name="btnSecDec"
+                        Text="Convert" 
+                        Clicked="BtnUTCSecondsDEC_Click"/>
 
-                <HorizontalStackLayout
-                    HorizontalOptions="Center">
-                    <Label Text="UTC Time:"
-                           WidthRequest="130"
-                           HeightRequest="40"
-                           VerticalTextAlignment="Center"/>
-                    <Entry x:Name="txtUtcTime"
-                           WidthRequest="160"
-                           HeightRequest="40"
-                           Placeholder="1970/1/1 0:00:00"
-                           Margin="10"/>
-                    <Button x:Name="btnUtcTime"
-                            WidthRequest="80"
-                            HeightRequest="40"
-                            Text="Convert" 
-                            Clicked="BtnUTCTime_Click"/>
-                </HorizontalStackLayout>
+                <!-- Row 3: UTC Seconds (HEX) -->
+                <Label Grid.Row="3" Grid.Column="0"
+                       Text="UTC Seconds (HEX):"
+                       VerticalTextAlignment="Center"/>
+                <Entry Grid.Row="3" Grid.Column="1"
+                       x:Name="txtSecHex"
+                       Placeholder="00000000"/>
+                <Button Grid.Row="3" Grid.Column="2"
+                        x:Name="btnSecHex"
+                        Text="Convert" 
+                        Clicked="BtnUTCSecondsHEX_Click"/>
 
-                <HorizontalStackLayout
-                    HorizontalOptions="Center">
-                    <Label Text="Local Time:"
-                           WidthRequest="130"
-                           HeightRequest="40"
-                           VerticalTextAlignment="Center"/>
-                    <Entry x:Name="txtLocalTime"
-                           WidthRequest="160"
-                           HeightRequest="40"
-                           Placeholder="1970/1/1 0:00:00"
-                           Margin="10"/>
-                    <Button x:Name="btnLocalTime"
-                            WidthRequest="80"
-                            HeightRequest="40"
-                            Text="Convert" 
-                            Clicked="BtnLocalTime_Click"/>
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
+                <!-- Row 4: UTC Time -->
+                <Label Grid.Row="4" Grid.Column="0"
+                       Text="UTC Time:"
+                       VerticalTextAlignment="Center"/>
+                <Entry Grid.Row="4" Grid.Column="1"
+                       x:Name="txtUtcTime"
+                       Placeholder="1970/1/1 0:00:00"/>
+                <Button Grid.Row="4" Grid.Column="2"
+                        x:Name="btnUtcTime"
+                        Text="Convert" 
+                        Clicked="BtnUTCTime_Click"/>
+
+                <!-- Row 5: Local Time -->
+                <Label Grid.Row="5" Grid.Column="0"
+                       Text="Local Time:"
+                       VerticalTextAlignment="Center"/>
+                <Entry Grid.Row="5" Grid.Column="1"
+                       x:Name="txtLocalTime"
+                       Placeholder="1970/1/1 0:00:00"/>
+                <Button Grid.Row="5" Grid.Column="2"
+                        x:Name="btnLocalTime"
+                        Text="Convert" 
+                        Clicked="BtnLocalTime_Click"/>
+            </Grid>
         </ScrollView>
 
         <!-- Copyright -->
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+        <HorizontalStackLayout VerticalOptions="End" HorizontalOptions="Center" Spacing="5">
             <Label Text="Copyright © Kerwin Shen 2026"
                    FontSize="11"
                    TextColor="DarkGray"
@@ -140,5 +119,5 @@
             </Label>
         </HorizontalStackLayout>
 
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>
