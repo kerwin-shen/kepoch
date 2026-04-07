@@ -50,9 +50,10 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-android|AnyCPU'">
-	  <ApplicationVersion>1</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
+	  <ApplicationVersion>2</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
 	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
+	  <AndroidEnableMultiDex>True</AndroidEnableMultiDex>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-ios|AnyCPU'">
@@ -68,15 +69,17 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-windows10.0.19041.0|AnyCPU'">
-	  <ApplicationVersion>1</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
+	  <ApplicationVersion>2</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
 	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-android|AnyCPU'">
-	  <ApplicationVersion>1</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
+	  <ApplicationVersion>2</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
 	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidEnableMultiDex>True</AndroidEnableMultiDex>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-ios|AnyCPU'">
@@ -92,8 +95,8 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-windows10.0.19041.0|AnyCPU'">
-	  <ApplicationVersion>1</ApplicationVersion>
-	  <ApplicationDisplayVersion>1.0.0</ApplicationDisplayVersion>
+	  <ApplicationVersion>2</ApplicationVersion>
+	  <ApplicationDisplayVersion>1.0.1</ApplicationDisplayVersion>
 	  <ApplicationId>com.kerwinshen.kepoch</ApplicationId>
 	</PropertyGroup>
 
@@ -128,4 +131,6 @@
 	  </None>
 	</ItemGroup>
 
+	<!-- Import keystore credentials for android publish signing -->
+	<Import Project="Keys/kandorid.props" Condition="Exists('Keys/kandorid.props')" />
 </Project>
