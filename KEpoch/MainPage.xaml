@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KEpoch.MainPage"
              Shell.NavBarIsVisible="False">
-
     <Grid Padding="15">
-        
+
         <!-- Title -->
         <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center">
             <Label Text="K-Epoch" 
